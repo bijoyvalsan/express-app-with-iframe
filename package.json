@@ -1,0 +1,24 @@
+{
+  "name": "express-app-with-iframe",
+  "version": "1.0.0",
+  "description": "App with just an iframe to load other websites",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bijoyvalsan/express-app-with-iframe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bijoyvalsan/express-app-with-iframe/issues"
+  },
+  "homepage": "https://github.com/bijoyvalsan/express-app-with-iframe#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "helmet": "^3.21.2"
+  }
+}

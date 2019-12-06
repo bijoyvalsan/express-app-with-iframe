@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript">
+        function loadUrlToIframe() {
+            var url = document.getElementById("txtUrlBox").value;
+            document.getElementById('frmUrl').src = url;
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <div>
+            <input id="txtUrlBox" type="text" style="width: 50%;line-height: 30px;margin: 25px 25px 25px 0" />
+            <button id="btnLoadUrl" style="line-height: 30px;" onclick="loadUrlToIframe()">load url</button>
+        </div>
+        <div>
+            <iframe id="frmUrl" style="width: 100%;min-height:100vh;height: 100%;"></iframe>
+        </div>
+    </div>
+
+</body>
+
+</html>
