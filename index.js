@@ -19,10 +19,12 @@ app.get('/', (req, res) => {
 });
 
 
-const GENDER=["MALE","FEMALE"]
+const GENDER = ["MALE", "FEMALE"]
+let count = 0;
 
 app.get('/api/user', (req, res) => {
     delete req.headers['X-Frame-Options'];
+    count += 1;
     const { query: { requestId } } = req;
     const responseJson = {
         id: randomstring.generate(13),
@@ -31,28 +33,35 @@ app.get('/api/user', (req, res) => {
         firstname: randomstring.generate({
             length: 5,
             charset: 'alphabetic'
-          }),
+        }),
         lastname: randomstring.generate({
             length: 5,
             charset: 'alphabetic'
-          }),
+        }),
         birthday: "1999-12-25",
-        phoneNumber: "0049"+randomstring.generate({
+        phoneNumber: "0049" + randomstring.generate({
             length: 9,
             charset: 'numeric'
-          }),
+        }),
         email: randomstring.generate({
             length: 5,
             charset: 'alphabetic'
-          })+randomstring.generate({
+        }) + randomstring.generate({
             length: 4,
             charset: 'numeric'
-          })+"@ssssss.sdf",
-        schufaAgreementAccepted: (Math.round(Math.random())>0),
-        newsletterSubscription: (Math.round(Math.random())>0)
+        }) + "@ssssss.sdf",
+        schufaAgreementAccepted: (Math.round(Math.random()) > 0),
+        newsletterSubscription: (Math.round(Math.random()) > 0)
+    }
+    if (count % 2 === 0) {
+        res.json(responseJson)
+    }
+    else {
+        setTimeout(() => {
+            res.json(responseJson)
+        }, 10000)
     }
 
-    res.json(responseJson)
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
